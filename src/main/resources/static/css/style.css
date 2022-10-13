@@ -195,6 +195,10 @@
   display: none;
 }
 
+.services.slider.services.a11y-slider{
+  height: 100%; !important;
+}
+
 @media(min-width: 50em){
   .a11y-slider-next{
     display: inline-block;
