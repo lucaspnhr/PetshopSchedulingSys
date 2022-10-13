@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/register.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <title>Agro-isa: Cadastro</title>
+  </head>
+  <body>
+    <header>
+      <div class="container | flex justify-center padding-block-start-600">
+        <a href="index.html"
+          ><img th:src="@{/images/logo.png}" alt="agro-isa" class="logo"
+        /></a>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="container padding-block-600">
+          <div class="register-form | margin-center">
+            <form
+              th:action="@{/register}"
+              method="post"
+              class="flex-column align-center fw-semi-bold padding-block-600"
+            >
+              <div id="form-control" class="flex f-wrap justify-center">
+                <div class="firstname-field">
+                  <input
+                    type="text"
+                    name="firstname"
+                    id="firstname-input"
+                    placeholder="Nome"
+                    required
+                  />
+                  <span class="line-input"></span>
+                </div>
+
+                <div class="lastname-field">
+                  <input
+                    type="text"
+                    name="lastname"
+                    id="lastname-input"
+                    placeholder="Sobrenome"
+                    required
+                  />
+                  <span class="line-input"></span>
+                </div>
+
+                <div class="email-field">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email-input"
+                    placeholder="Email"
+                    required
+                  />
+                  <span class="line-input"></span>
+                </div>
+
+                <div class="tel-field">
+                  <input
+                    type="tel"
+                    name="tel"
+                    id="tel-input"
+                    placeholder="Telefone"
+                    onkeypress="mask(this, mphone)"
+                    required
+                  />
+                  <span class="line-input"></span>
+                </div>
+
+                <div class="password-field">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password-input"
+                    placeholder="Senha"
+                    required
+                  />
+
+                  <span class="line-input"></span>
+                  <span class="fs-200" id="password-message"> </span>
+                </div>
+
+                <div class="rpassword-field">
+                  <input
+                    type="password"
+                    name="rpassword"
+                    id="rpassword-input"
+                    placeholder="Repita a Senha"
+                    required
+                  />
+                  <span class="line-input"></span>
+                  <span class="fs-200" id="match-password"></span>
+                </div>
+              </div>
+
+              <div class="privacy-field | flex align-center">
+                <input
+                  type="checkbox"
+                  name="privacy-policy"
+                  id="privacy-policy"
+                  required
+                />
+                <label for="privacy-policy" class="fs-300"
+                  >Concordo com a <a>Politica de Privacidade</a></label
+                >
+              </div>
+              <div class="submit-field | flex">
+                <button class="button | d-md-flex-inline">Confirmar</button>
+                <a th:href="@{/}" class="button button-danger">Cancelar</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer th:replace="components/footer :: footer"></footer>
+
+    <script src="../static/js/register.js"></script>
+  </body>
+</html>

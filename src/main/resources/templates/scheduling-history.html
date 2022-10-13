@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/scheduling-history.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.css"
+    />
+    <link rel="stylesheet" href="../static/css/footer.css" />
+    <script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.js"></script>
+    <title>Agro-isa</title>
+  </head>
+  <body>
+    <header class="primary-header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="#">
+            <img src="../static/images/logo.png" id="logo-nav" alt="Agro-isa" />
+          </a>
+          <button
+            class="mobile-nav-toggle"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          >
+            <span class="visually-hidden">Menu</span>
+          </button>
+          <nav class="primary-navigation">
+            <ul
+              aria-label="Primary"
+              role="list"
+              class="nav-list"
+              id="primary-navigation"
+            >
+              <li><a href="login.html" class="hidden-lg">Sair</a></li>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="scheduling-history.html">Historico</a></li>
+              <li><a href="scheduling.html">Agendamento</a></li>
+              <li><a href="#">Minha Conta</a></li>
+            </ul>
+          </nav>
+          <div class="login">
+            <a
+              href="login.html"
+              class="button button-danger | hidden-sm d-md-flex-inline"
+              >Sair</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div>
+        <h1 class="fs-primary-heading fw-bold margin-block-600">
+          Historico de Servicos
+        </h1>
+      </div>
+
+      <section id="services-history">
+        <div class="service-wrapper | flex justify-around">
+          <div class="flex-column gap-700">
+            <div class="card service-scheduled">
+              <div class="card-wrapper">
+                <div id="pet-name-field">
+                  <p class="fs-500 fw-bold">Pet: Boltz</p>
+                </div>
+  
+                <div id="appointment-date-field">
+                  <p class="fs-500 fw-bold">29/09/2022</p>
+                </div>
+              </div>
+  
+              <div class="card-wrapper">
+                <div id="payment-method-field">
+                  <p class="fs-500 fw-bold">Pagamento no dinheiro</p>
+                </div>
+                <div id="appointment-time-field">
+                  <p class="fs-500 fw-bold">10:00</p>
+                </div>
+              </div>
+              <div class="card-wrapper">
+                <div id="services-made-field">
+                  <h5 class="fs-600 fw-bold">Servicos contratados</h5>
+                  <ul role="list" aria-label="services-made">
+                    <li>Banho</li>
+                    <li>Tosa</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-wrapper">
+                <!-- Only if the appoitment status is as made -->
+                <div class="margin-inline-auto" id="cancel-field">
+                  <button class="button button-danger |">cancelar</button>
+                </div>
+              </div>
+              <!-- Remember to change -->
+            </div>
+            <div class="card service-in-progress">
+              <div class="card-wrapper">
+                <div id="pet-name-field">
+                  <p class="fs-500 fw-bold">Pet: Boltz</p>
+                </div>
+  
+                <div id="appointment-date-field">
+                  <p class="fs-500 fw-bold">29/09/2022</p>
+                </div>
+              </div>
+  
+              <div class="card-wrapper">
+                <div id="payment-method-field">
+                  <p class="fs-500 fw-bold">Pagamento no dinheiro</p>
+                </div>
+                <div id="appointment-time-field">
+                  <p class="fs-500 fw-bold">10:00</p>
+                </div>
+              </div>
+              <div class="card-wrapper">
+                <div id="services-made-field">
+                  <h5 class="fs-600 fw-bold">Servicos contratados</h5>
+                  <ul role="list" aria-label="services-made">
+                    <li>Banho</li>
+                    <li>Tosa</li>
+                  </ul>
+                </div>
+              </div>
+  
+          </div>
+          <div class="card service-done">
+            <div class="card-wrapper">
+              <div id="pet-name-field">
+                <p class="fs-500 fw-bold">Pet: Boltz</p>
+              </div>
+
+              <div id="appointment-date-field">
+                <p class="fs-500 fw-bold">29/09/2022</p>
+              </div>
+            </div>
+
+            <div class="card-wrapper">
+              <div id="payment-method-field">
+                <p class="fs-500 fw-bold">Pagamento no dinheiro</p>
+              </div>
+              <div id="appointment-time-field">
+                <p class="fs-500 fw-bold">10:00</p>
+              </div>
+            </div>
+            <div class="card-wrapper">
+              <div id="services-made-field">
+                <h5 class="fs-600 fw-bold">Servicos contratados</h5>
+                <ul role="list" aria-label="services-made">
+                  <li>Banho</li>
+                  <li>Tosa</li>
+                </ul>
+              </div>
+            </div>
+
+        </div>
+          </div>
+
+        
+        <div
+        class="service-status-caption | hidden-sm text-primary-500 fw-bold"
+      >
+        <ul
+          class="flex-column gap-400"
+          role="list"
+          aria-label="status-caption"
+        >
+          <li class="flex align-center gap-200">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="8" cy="8" r="8" fill="#2E0038" />
+            </svg>
+            Agendado
+          </li>
+          <li class="flex align-center gap-200">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="8" cy="8" r="8" fill="#FE7C02" />
+            </svg>
+            Em Andamento
+          </li>
+          <li class="flex align-center gap-200">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="8" cy="8" r="8" fill="#00C437" />
+            </svg>
+            Completo
+          </li>
+          <li class="flex align-center gap-200">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="8" cy="8" r="8" fill="#FF1A1A" />
+            </svg>
+            Cancelado
+          </li>
+        </ul>
+      </div>
+      </section>
+    </main>
+
+    <footer class="bg-primary-500 padding-block-500">
+      <div class="even-columns">
+        <div class="links | flex-column justify-center">
+          <a href="index.html"
+            ><img src="../static/images/logo.png" alt="agro-isa"
+          /></a>
+          <p>midias sociais</p>
+          <div class="social-medias | flex">
+            <a href="https://www.instagram.com/agroisapetshop/" target="_blank"
+              ><svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-content="instagram-icon"
+              >
+                <path
+                  d="M10.6667 4C6.99067 4 4 6.99067 4 10.6667V21.3333C4 25.0093 6.99067 28 10.6667 28H21.3333C25.0093 28 28 25.0093 28 21.3333V10.6667C28 6.99067 25.0093 4 21.3333 4H10.6667ZM10.6667 6.66667H21.3333C23.5387 6.66667 25.3333 8.46133 25.3333 10.6667V21.3333C25.3333 23.5387 23.5387 25.3333 21.3333 25.3333H10.6667C8.46133 25.3333 6.66667 23.5387 6.66667 21.3333V10.6667C6.66667 8.46133 8.46133 6.66667 10.6667 6.66667ZM22.6667 8C22.313 8 21.9739 8.14048 21.7239 8.39052C21.4738 8.64057 21.3333 8.97971 21.3333 9.33333C21.3333 9.68696 21.4738 10.0261 21.7239 10.2761C21.9739 10.5262 22.313 10.6667 22.6667 10.6667C23.0203 10.6667 23.3594 10.5262 23.6095 10.2761C23.8595 10.0261 24 9.68696 24 9.33333C24 8.97971 23.8595 8.64057 23.6095 8.39052C23.3594 8.14048 23.0203 8 22.6667 8ZM16 9.33333C12.324 9.33333 9.33333 12.324 9.33333 16C9.33333 19.676 12.324 22.6667 16 22.6667C19.676 22.6667 22.6667 19.676 22.6667 16C22.6667 12.324 19.676 9.33333 16 9.33333ZM16 12C18.2053 12 20 13.7947 20 16C20 18.2053 18.2053 20 16 20C13.7947 20 12 18.2053 12 16C12 13.7947 13.7947 12 16 12Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://api.whatsapp.com/send/?phone=5561984125903&text&type=phone_number&app_absent=0"
+              target="_blank"
+            >
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-content="whatsapp-icon"
+              >
+                <path
+                  d="M14.0157 0.666626C6.67437 0.666626 0.698061 6.63779 0.695394 13.9791C0.694061 16.3258 1.30871 18.6167 2.47404 20.6354L0.666748 27.3333L7.64331 25.6849C9.58864 26.7462 11.7786 27.3033 14.0079 27.3046H14.0131C21.3531 27.3046 27.3268 21.3321 27.3308 13.9921C27.3335 10.4335 25.9496 7.0876 23.435 4.57027C20.9203 2.05427 17.5784 0.667959 14.0157 0.666626ZM14.0131 3.33329C16.8611 3.33463 19.5376 4.44502 21.5496 6.45569C23.5616 8.46902 24.6668 11.1442 24.6641 13.9895C24.6615 19.8615 19.8852 24.638 14.0105 24.638C12.2332 24.6366 10.4726 24.1904 8.92196 23.3437L8.02352 22.8541L7.03133 23.0885L4.40633 23.7083L5.04696 21.3281L5.33602 20.2604L4.78394 19.302C3.85327 17.6914 3.36073 15.8498 3.36206 13.9791C3.36473 8.10979 8.14244 3.33329 14.0131 3.33329ZM9.30217 7.83329C9.0795 7.83329 8.71948 7.91663 8.41414 8.24996C8.10881 8.58196 7.24748 9.38606 7.24748 11.0234C7.24748 12.6607 8.44019 14.2434 8.60685 14.4661C8.77219 14.6874 10.9091 18.1536 14.2917 19.4869C17.1024 20.5949 17.6733 20.3763 18.2839 20.3203C18.8946 20.2656 20.254 19.5169 20.5313 18.7395C20.8087 17.9622 20.8093 17.2935 20.7266 17.1562C20.644 17.0175 20.422 16.9349 20.0886 16.7682C19.7566 16.6015 18.1205 15.7981 17.8152 15.6875C17.5099 15.5768 17.2865 15.5208 17.0652 15.8541C16.8439 16.1875 16.2078 16.9349 16.0131 17.1562C15.8184 17.3789 15.6251 17.4088 15.2917 17.2421C14.9584 17.0741 13.8867 16.7218 12.6147 15.5885C11.6253 14.7072 10.9578 13.6198 10.7631 13.2864C10.5698 12.9544 10.7449 12.7721 10.9115 12.6067C11.0609 12.4574 11.2423 12.2181 11.4089 12.0234C11.5743 11.8287 11.6316 11.69 11.7423 11.4687C11.8529 11.2474 11.7963 11.052 11.7136 10.8854C11.631 10.7187 10.9836 9.07529 10.6876 8.41663C10.4382 7.86329 10.1749 7.85044 9.93758 7.8411C9.74425 7.8331 9.5235 7.83329 9.30217 7.83329Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="copy | flex-column justify-end">
+          <p>Copyright 2022. All rights reserved</p>
+          <p>Developed by linguiceta.Inc</p>
+        </div>
+        <div class="address | flex-column justify-center">
+          <p>Visite-nos em nossa loja</p>
+          <p>QS 8 Lote “C” 68 Loja 1 Águas Claras(Areal) - DF</p>
+        </div>
+      </div>
+    </footer>
+    <script src="../static/js/nav.js"></script>
+  </body>
+</html>

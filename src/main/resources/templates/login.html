@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <title>Agro-isa</title>
+  </head>
+  <body>
+    <header>
+      <div class="container | flex justify-center padding-block-start-600">
+        <a th:href="@{/}"
+          ><img th:src="@{/images/logo.png}" alt="agro-isa" class="logo"
+        /></a>
+      </div>
+    </header>
+
+    <main>
+      <section id="gapped" class="container even-columns padding-block-700">
+        <div class="login-form | flex-column justify-center">
+          <h1
+            class="fs-primary-heading fw-bold text-primary-500 text-center padding-block-500"
+          >
+            Bem vindo
+          </h1>
+          <form
+            th:action="@{/login}"
+            method="post"
+            class="flex-column align-center fw-semi-bold"
+          >
+            <div id="login-field" class="flex-column align-start">
+              <label for="login-input" class="text-primary-500 fw-bold"
+                >Login</label
+              >
+              <input type="text" name="login-input" id="login-input" />
+              <span class="line-input"></span>
+            </div>
+            <div id="password-field" class="flex-column align-start">
+              <label for="password-input" class="text-primary-500 fw-bold"
+                >Senha</label
+              >
+              <input
+                type="password"
+                name="password-input"
+                id="password-input"
+              />
+              <span class="line-input"></span>
+            </div>
+            <div th:if="${param.error}">
+              <span>Login ou senha incorretos</span>
+            </div>
+            <button class="button | d-md-flex-inline">Entrar</button>
+          </form>
+        </div>
+
+        <div>
+          <img th:src="@{/images/parrot-login.png}" alt="parrot" />
+        </div>
+      </section>
+    </main>
+
+
+      <footer th:replace="components/footer :: footer"></footer>
+
+  </body>
+</html>

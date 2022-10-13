@@ -1,0 +1,73 @@
+@import url("utilities.css");
+
+*{
+    font-family: var(--ff-body);
+}
+
+.logo{
+    max-width: 20.3125rem;
+    height: 8.75rem;
+}
+
+.register-form{
+    --width: 40.25rem;
+        
+    background-color: var(--clr-neutral-200);
+    max-width: var(--width);
+    height: var(--height);
+
+    border-radius: var(--size-500);
+    box-shadow: 0 .125em .625em var(--clr-neutral-900);
+}
+
+.register-form form{
+    gap: var(--size-500);
+}
+
+input::placeholder{
+    color: var(--clr-primary-500);
+    font-size: var(--fs-600);
+    font-weight: var(--fw-bold);
+
+    opacity: .8;
+}
+
+#form-control{
+    gap: var(--size-500);
+}
+
+
+.password-field span.fs-200,
+.rpassword-field span.fs-200{
+    margin-left: var(--size-500);
+    margin-top: var(--size-100);
+}
+
+.privacy-field{
+    gap: var(--size-200);
+}
+
+.privacy-field a{
+    cursor: pointer;
+    color: var(--clr-accent-400);
+    transition: color 100ms ease-in;
+}
+
+.privacy-field a:hover,
+.privacy-field a:focus{
+    color: var(--clr-accent-300);
+}
+
+.line-input:after{
+    width: 90%;
+}
+
+
+.submit-field{
+    gap: var(--size-500);
+}
+
+#password-message, #match-password{
+    height: fit-content;
+    width: fit-content;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.css"
+    />
+
+    <script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.js"></script>
+    <title>Agro-isa</title>
+  </head>
+  <body>
+    <header class="primary-header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="index.html">
+            <img th:src="@{/images/logo.png}" id="logo-nav" alt="Agro-isa" />
+          </a>
+          <button
+            class="mobile-nav-toggle"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+          >
+            <span class="visually-hidden">Menu</span>
+          </button>
+          <nav class="primary-navigation">
+            <ul
+              aria-label="Primary"
+              role="list"
+              class="nav-list"
+              id="primary-navigation"
+            >
+              <li><a href="login.html" class="hidden-lg">Entrar</a></li>
+              <li><a href="#services">Serviços</a></li>
+              <li><a href="#prices">Preços</a></li>
+              <li><a href="scheduling.html">Agendamento</a></li>
+              <li><a href="#who-are-we">Quem Somos</a></li>
+            </ul>
+          </nav>
+          <div class="login | flex-column">
+            <a th:href="@{/login}" href="login.html" class="button | hidden-sm d-md-flex-inline"
+              >Entrar</a
+            >
+            <p class="fs-300 text-center hidden-sm">
+              ou <a class="text-accent-400" id="register" th:href="@{/register}">cadastre-se</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="padding-block-700" id="services">
+        <div class="container">
+          <h1 class="fs-primary-heading fw-bold text-center">Servicos</h1>
+          <div class="even-columns padding-block-600">
+            <div class="carousel">
+              <ul class="slider services">
+                <li>
+                  <h3 class="fs-700 fw-bold text-center">Tosa</h3>
+                  <img th:src="@{/images/cortando-cabelo.png}" alt="" />
+                </li>
+                <li>
+                  <h3 class="fs-700 fw-bold text-center">Banho</h3>
+                  <img th:src="@{/images/bathing-cat.png}" alt="" />
+                </li>
+                <li>
+                  <h3 class="fs-700 fw-bold text-center">Hidratação</h3>
+                  <img th:src="@{/images/hydration.png}" alt="" />
+                </li>
+                <li>
+                  <h3 class="fs-700 fw-bold text-center">Desenbolo</h3>
+                  <img th:src="@{/images/desembolo.png}" alt="" />
+                </li>
+              </ul>
+            </div>
+            <div class="cta | padding-block-600">
+              <p class="fs-secondary-heading fw-bold">Agende já sua visita</p>
+              <p class="fs-secondary-heading fw-bold margin-block-600">
+                Cadastre-se e facilite futuros agendamentos
+              </p>
+              <a class="button fw-regular letter-space" th:href="@{/register}">Cadastrar</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="price | bg-primary-500" id="prices">
+        <div class="container padding-block-600">
+          <h2 class="fs-primary-heading fw-bold text-accent-400">Preços</h2>
+          <div class="carousel">
+            <ul class="slider | padding-block-600">
+              <li>
+                <div class="card | bg-accent-400">
+                  <h2
+                    class="card-title | fs-secondary-heading fw-semibold text-center"
+                  >
+                    Banho + Tosa
+                  </h2>
+                  <p
+                    class="card-body | fs-secondary-heading fw-bold text-center"
+                  >
+                    R$ 49,99
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="card | bg-accent-400">
+                  <h2
+                    class="card-title | fs-secondary-heading fw-semibold text-center"
+                  >
+                    Banho + Tosa
+                  </h2>
+                  <p
+                    class="card-body | fs-secondary-heading fw-bold text-center"
+                  >
+                    R$ 49,99
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="card | bg-accent-400">
+                  <h2
+                    class="card-title | fs-secondary-heading fw-semibold text-center"
+                  >
+                    Banho + Tosa
+                  </h2>
+                  <p
+                    class="card-body | fs-secondary-heading fw-bold text-center"
+                  >
+                    R$ 49,99
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="card | bg-accent-400">
+                  <h2
+                    class="card-title | fs-secondary-heading fw-semibold text-center"
+                  >
+                    Banho + Tosa
+                  </h2>
+                  <p
+                    class="card-body | fs-secondary-heading fw-bold text-center"
+                  >
+                    R$ 49,99
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="padding-block-start-800" id="who-are-we">
+        <div class="container">
+          <div class="who-are-we | even-columns">
+            <div id="dog-image">
+              <img th:src="@{/images/dog-we.png}" alt="dog-looking" />
+            </div>
+            <div id="text">
+              <h1
+                class="fs-primary-heading fw-bold text-primary-400 text-right"
+              >
+                Quem somos?
+              </h1>
+              <p class="text-justified text-neutral-900 padding-block-500">
+                &Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Aspernatur nam illum quibusdam, in, tempore perferendis, eos
+                enim similique ut repudiandae ad laudantium unde? Aliquam nobis
+                quidem nemo minima officia aliquid?
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+      <footer th:replace="components/footer :: footer"></footer>
+
+    <script src="//unpkg.com/a11y-slider@latest/dist/a11y-slider.js"></script>
+    <script th:src="@{/js/main.js}"></script>
+  </body>
+</html>
