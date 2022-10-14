@@ -196,7 +196,7 @@
 }
 
 .services.slider.services.a11y-slider{
-  height: 100%; !important;
+  height: 100% !important;
 }
 
 @media(min-width: 50em){
