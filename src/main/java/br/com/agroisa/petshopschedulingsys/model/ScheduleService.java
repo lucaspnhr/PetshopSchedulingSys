@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class ScheduleService {
     @Id
     @ManyToOne
-    @JoinColumn(name = "schedule_id")
+//    @JoinColumns()
     private Schedule schedule;
     @Id
     @ManyToOne

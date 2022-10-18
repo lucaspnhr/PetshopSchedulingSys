@@ -1,17 +1,35 @@
-const submit = document.querySelector(".button");
+const submit = document.getElementById("submit");
 const password = document.getElementById("password-input");
 const rpassword = document.getElementById("rpassword-input");
 const matchMessage = document.getElementById("match-password");
 const passwordMessage = document.getElementById("password-message");
 
+const dddField = document.getElementById("ddd");
+const telNumber = document.getElementById("telNumber");
+const telField = document.getElementById("tel-input");
+
 password.addEventListener("keyup", checkMatch);
 password.addEventListener("keydown", checkLength);
 rpassword.addEventListener("keyup", checkMatch);
+submit.addEventListener("click", beforeSubmit);
 
+function beforeSubmit(){
+    let number = telField.value;
+    let maskedOffNumber = maskOff(number);
+    dddField.value = maskedOffNumber.substring(0,2);
+    telNumber.value = maskedOffNumber.substring(2);
+}
+
+function maskOff(maskedNumber){
+    return maskedNumber
+        .replace("(", '')
+        .replace(")",'')
+        .replace("-",'');
+}
 
 
 function checkMatch(){
-    if(password.value != rpassword.value){        
+    if(password.value !== rpassword.value){
         matchMessage.style.color = "red";
         matchMessage.innerHTML = "As senhas devem ser iguais";
         submit.disabled = true;

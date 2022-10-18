@@ -34,7 +34,7 @@
               <label for="login-input" class="text-primary-500 fw-bold"
                 >Login</label
               >
-              <input type="text" name="login-input" id="login-input" />
+              <input type="text" th:name="'username'" name="login-input" id="login-input" />
               <span class="line-input"></span>
             </div>
             <div id="password-field" class="flex-column align-start">
@@ -43,6 +43,7 @@
               >
               <input
                 type="password"
+                th:name="'password'"
                 name="password-input"
                 id="password-input"
               />

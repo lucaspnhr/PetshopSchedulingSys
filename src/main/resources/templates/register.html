@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,6 +25,7 @@
               th:action="@{/register}"
               method="post"
               class="flex-column align-center fw-semi-bold padding-block-600"
+              th:object="${user}"
             >
               <div id="form-control" class="flex f-wrap justify-center">
                 <div class="firstname-field">
@@ -33,6 +34,7 @@
                     name="firstname"
                     id="firstname-input"
                     placeholder="Nome"
+                    th:field="*{firstname}"
                     required
                   />
                   <span class="line-input"></span>
@@ -44,6 +46,7 @@
                     name="lastname"
                     id="lastname-input"
                     placeholder="Sobrenome"
+                    th:field="*{lastname}"
                     required
                   />
                   <span class="line-input"></span>
@@ -55,12 +58,15 @@
                     name="email"
                     id="email-input"
                     placeholder="Email"
+                    th:field="*{email}"
                     required
                   />
                   <span class="line-input"></span>
                 </div>
 
                 <div class="tel-field">
+                  <input type="hidden" name="ddd" id="ddd" th:field="*{telephone.ddd}">
+                  <input type="hidden" name="number" id="telNumber" th:field="*{telephone.number}">
                   <input
                     type="tel"
                     name="tel"
@@ -78,6 +84,7 @@
                     name="password"
                     id="password-input"
                     placeholder="Senha"
+                    th:field="*{password}"
                     required
                   />
 
@@ -110,7 +117,7 @@
                 >
               </div>
               <div class="submit-field | flex">
-                <button class="button | d-md-flex-inline">Confirmar</button>
+                <button id="submit" class="button | d-md-flex-inline">Confirmar</button>
                 <a th:href="@{/}" class="button button-danger">Cancelar</a>
               </div>
             </form>
@@ -121,6 +128,6 @@
 
     <footer th:replace="components/footer :: footer"></footer>
 
-    <script src="../static/js/register.js"></script>
+    <script th:src="@{js/register.js}"></script>
   </body>
 </html>

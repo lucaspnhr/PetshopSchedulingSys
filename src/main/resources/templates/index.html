@@ -43,12 +43,16 @@
             </ul>
           </nav>
           <div class="login | flex-column">
-            <a th:href="@{/login}" href="login.html" class="button | hidden-sm d-md-flex-inline"
-              >Entrar</a
-            >
-            <p class="fs-300 text-center hidden-sm">
-              ou <a class="text-accent-400" id="register" th:href="@{/register}">cadastre-se</a>
-            </p>
+            <div th:unless="${logged}">
+              <a th:href="@{/login}" href="login.html" class="button | hidden-sm d-md-flex-inline">Entrar</a>
+              <p class="fs-300 text-center hidden-sm">
+                ou <a class="text-accent-400" id="register" th:href="@{/register}">cadastre-se</a>
+              </p>
+            </div>
+            <div th:if="${logged}">
+              <a th:href="@{/logout}" href="login.html" class="button button-danger | hidden-sm d-md-flex-inline">Sair</a>
+            </div>
+
           </div>
         </div>
       </div>

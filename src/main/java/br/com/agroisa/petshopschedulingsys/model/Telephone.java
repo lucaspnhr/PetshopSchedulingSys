@@ -1,9 +1,6 @@
 package br.com.agroisa.petshopschedulingsys.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,4 +18,6 @@ public class Telephone implements Serializable {
     private String ddd;
     @Column(length = 9, nullable = false)
     private String number;
+
+
 }

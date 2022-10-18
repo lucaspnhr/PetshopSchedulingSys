@@ -24,11 +24,11 @@ import java.util.stream.Stream;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User implements UserDetails, Serializable {
+public abstract class User implements UserDetails, Serializable {
     @Id
     @Column(length = 140)
     private String email;
-    @Column(length = 50, nullable = false)
+    @Column(length = 60, nullable = false)
     private String password;
     @Column(length = 20, nullable = false)
     private String firstname;
