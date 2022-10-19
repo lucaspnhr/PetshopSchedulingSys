@@ -1,5 +1,5 @@
 package br.com.agroisa.petshopschedulingsys.model.enums;
 
-public enum ClippingSize {
+public enum Size {
     SMALL, MID, LARGE
 }

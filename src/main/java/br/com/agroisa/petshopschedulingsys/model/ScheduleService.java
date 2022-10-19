@@ -1,7 +1,7 @@
 package br.com.agroisa.petshopschedulingsys.model;
 
 import br.com.agroisa.petshopschedulingsys.model.composedId.ScheduleServiceId;
-import br.com.agroisa.petshopschedulingsys.model.enums.ClippingSize;
+import br.com.agroisa.petshopschedulingsys.model.enums.Size;
 import br.com.agroisa.petshopschedulingsys.model.enums.ClippingType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +28,7 @@ public class ScheduleService {
     @Enumerated(EnumType.STRING)
     private ClippingType clippingType;
     @Enumerated(EnumType.STRING)
-    private ClippingSize clippingSize;
+    private Size size;
     private boolean withSisors;
     private boolean withHairClipper;
 
