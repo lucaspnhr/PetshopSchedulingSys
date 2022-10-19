@@ -1,10 +1,9 @@
 package br.com.agroisa.petshopschedulingsys.model;
 
+
 import br.com.agroisa.petshopschedulingsys.model.enums.UserRole;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import javax.persistence.Entity;
 

@@ -1,381 +1,407 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/scheduling.css" />
-    <link rel="stylesheet" href="../static/css/footer.css" />
-    <title>Agro-isa: Agendamento</title>
-  </head>
-  <body>
-    <header>
-      <div class="container | flex justify-center padding-block-start-600">
-        <a href="index.html"
-          ><img th:src="@{images/logo.png}" alt="agro-isa" class="logo"
-        /></a>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" th:href="@{css/scheduling.css}" />
+  <link rel="stylesheet" th:href="@{css/footer.css}" />
+  <title>Agro-isa: Agendamento</title>
+</head>
+<body>
+<header>
+  <div class="container | flex justify-center padding-block-start-600">
+    <a href="index.html"
+    ><img th:src="@{images/logo.png}" alt="agro-isa" class="logo"
+    /></a>
+  </div>
+</header>
 
-    <main>
-      <section>
-        <div class="container padding-block-600">
-          <div class="scheduling-form | margin-center">
-            <form
-              th:action="@{/schedule}"
-              th:object="${petInfo}"
-              method="post"
-              class="fw-semi-bold margin-inline-600 padding-block-700"
+<main>
+  <section>
+    <div class="container padding-block-600">
+      <div class="scheduling-form | margin-center">
+        <form
+                th:action="@{/schedule}"
+                th:object="${scheduleInfo}"
+                method="post"
+                class="fw-semi-bold margin-inline-600 padding-block-700"
 
+        >
+          <section class="info">
+            <h1 class="fs-650 fw-bold">Informacoes do Dono</h1>
+            <div
+                    class="info-wrapper | flex f-wrap gap-300 margin-block-400"
             >
-              <section class="info">
-                <h1 class="fs-650 fw-bold">Informacoes do Dono</h1>
-                <div
-                  class="info-wrapper | flex f-wrap gap-300 margin-block-400"
-                >
 
-                  <div class="owner-name-field | width-100">
-                    <input
-                      type="text"
-                      name="owner-name"
-                      id="owner-name-input"
-                      placeholder="Nome do Dono"
-                      th:field=""
-                    />
-                    <span class="line-input"></span>
-                  </div>
+              <div class="owner-name-field | width-100">
+                <input
+                        type="text"
+                        name="owner-name"
+                        id="owner-name-input"
+                        placeholder="Nome do Dono"
+                        th:field="*{ownerName}"
+                />
+                <span class="line-input"></span>
+              </div>
 
-                </div>
-              </section>
-              <section class="analysis">
-                <h1 class="fs-650 fw-bold text-center margin-block-end-400">
-                  Analise do Pet
-                </h1>
-                <div class="flex f-wrap gap-300 margin-block-400">
-                  <div class="pet-name-field | width-100">
-                    <!-- <label for="pet-name-input">Nome do Pet</label> -->
-                    <input
-                      type="text"
-                      name="pet-name"
-                      id="pet-name-input"
-                      placeholder="Nome do Pet"
-                    />
-                    <span class="line-input"></span>
-                  </div>
-                  <div class="breed-field | width-50">
-                    <!-- <label for="breed-input">Raca</label> -->
-                    <input
-                      type="text"
-                      name="breed"
-                      id="breed-input"
-                      placeholder="Raca"
-                    />
-                    <span class="line-input"></span>
-                  </div>
-                  <div class="age-field | width-25">
-                    <!-- <label for="breed-input">Idade</label> -->
-                    <input
-                      type="number"
-                      name="age"
-                      id="age-input"
-                      placeholder="Idade"
-                    />
-                    <span class="line-input"></span>
-                  </div>
-                  <div
+            </div>
+          </section>
+          <section class="analysis">
+            <h1 class="fs-650 fw-bold text-center margin-block-end-400">
+              Analise do Pet
+            </h1>
+            <div class="flex f-wrap gap-300 margin-block-400">
+              <div class="pet-name-field | width-100">
+                <!-- <label for="pet-name-input">Nome do Pet</label> -->
+                <input
+                        type="text"
+                        name="pet-name"
+                        id="pet-name-input"
+                        placeholder="Nome do Pet"
+                        th:field="*{petName}"
+                />
+                <span class="line-input"></span>
+              </div>
+              <div class="breed-field | width-50">
+                <!-- <label for="breed-input">Raca</label> -->
+                <input
+                        type="text"
+                        name="breed"
+                        id="breed-input"
+                        placeholder="Raca"
+                        th:field="*{petBreed}"
+                />
+                <span class="line-input"></span>
+              </div>
+              <div class="age-field | width-25">
+                <!-- <label for="breed-input">Idade</label> -->
+                <input
+                        type="number"
+                        name="age"
+                        id="age-input"
+                        placeholder="Idade"
+                        th:field="*{petAge}"
+                />
+                <span class="line-input"></span>
+              </div>
+              <div
                       class="sexuality-field | flex-column align-center text-primary-500"
-                    >
-                      <span class="fs-650 fw-bold">Sexo</span>
-                      <div class="flex gap-300">
-                        <div>
-                          <input
+              >
+                <span class="fs-650 fw-bold">Sexo</span>
+                <div class="flex gap-300">
+                  <div>
+                    <input
                             type="radio"
                             name="sexuality"
                             id="masculine-input"
-                          />
-                          <label for="masculine-input" class="fw-bold"
-                            >Macho</label
-                          >
-                        </div>
-                        <div>
-                          <input
+                            th:field="*{gender}"
+                            th:value="${'male'}"
+                    />
+                    <label for="masculine-input" class="fw-bold"
+                    >Macho</label
+                    >
+                  </div>
+                  <div>
+                    <input
                             type="radio"
                             name="sexuality"
                             id="feminine-input"
-                          />
-                          <label for="feminine-input" class="fw-bold"
-                            >Fêmea</label
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="ill-field | flex-column align-center  text-primary-500 fw-bold">
-                      <h5 class="fs-650 fw-bold">Infecçoes</h5>
-                      <div>
-                        <input type="checkbox" name="flea" id="flea-input" />
-                        <label for="flea-input">Pulgas</label>
-                        <input type="checkbox" name="ticks" id="ticks-input" />
-                        <label for="ticks-input">Carrapatos</label>
-                      </div>
-                    </div>
-                </div>
-                <div class="injuries-field | custom-selector-wrapper">
-                  <h5 class="fs-650 fw-bold text-primary-500">Lesoes</h5>
-                  <select
-                    name="injuries"
-                    id="injuries-selection"
-                    class="original-selection | margin-block-400"
-                  >
-                    <option value="select">Selecione a Lesao</option>
-                    <option value="eyes" class="select-item">Olhos</option>
-                    <option value="skin" class="select-item">Pele</option>
-                    <option value="ears" class="select-item">Ouvidos</option>
-                    <option value="secretion" class="select-item">
-                      Secrecao na Genitalias
-                    </option>
-                  </select>
-                  <select
-                    name="injuries-custom"
-                    id="injuries-selection-custom"
-                    class="custom-selection | hidden"
-                    multiple
-                  >
-                    <option value="eyes" class="select-item">Olhos</option>
-                    <option value="skin" class="select-item">Pele</option>
-                    <option value="ears" class="select-item">Ouvidos</option>
-                    <option value="secretion" class="select-item">
-                      Secrecao na Genitalias
-                    </option>
-                  </select>
-                </div>
-
-                <div class="items-left-field | custom-selector-wrapper">
-                  <h5 class="fs-650 fw-bold text-primary-500">
-                    Objetos Acompanhados
-                  </h5>
-                  <select
-                    name="items-left"
-                    id="items-left-selection"
-                    class="original-selection | margin-block-400"
-                  >
-                    <option value="select">Selecione</option>
-                    <option value="collar" class="select-item">Coleira</option>
-                    <option value="retractable" class="select-item">
-                      Retratil
-                    </option>
-                    <option value="hangman" class="select-item">
-                      Enforcador
-                    </option>
-                    <option value="guide" class="select-item">Guia</option>
-                    <option value="breastplate" class="select-item">
-                      Peitoral
-                    </option>
-                    <option value="teeth-brush" class="select-item">
-                      Escova de Dentes
-                    </option>
-                    <option value="Toothpaste" class="select-item">
-                      Pasta de Dentes
-                    </option>
-                  </select>
-                  <select
-                    name="items-left-custom"
-                    id="items-left-selection-custom"
-                    class="custom-selection | hidden"
-                    multiple
-                  >
-                    <option value="collar" class="select-item">Coleira</option>
-                    <option value="retractable" class="select-item">
-                      Retratil
-                    </option>
-                    <option value="hangman" class="select-item">
-                      Enforcador
-                    </option>
-                    <option value="guide" class="select-item">Guia</option>
-                    <option value="breastplate" class="select-item">
-                      Peitoral
-                    </option>
-                    <option value="teeth-brush" class="select-item">
-                      Escova de Dentes
-                    </option>
-                    <option value="Toothpaste" class="select-item">
-                      Pasta de Dentes
-                    </option>
-                  </select>
-                </div>
-                <div class="allergies-field">
-                  <div
-                    class="allergy-wrapper | flex align-center margin-block-start-500"
-                  >
-                    <h5
-                      class="fs-650 fw-bold text-primary-500 margin-inline-end-600"
-                    >
-                      Alergias?
-                    </h5>
-                    <div
-                      class="text-primary-500 fw-semi-bold margin-inline-end-400"
-                    >
-                      <label for="alergy-yes">Sim</label>
-                      <input type="radio" name="allergy" id="alergy-yes" />
-                    </div>
-                    <div class="text-primary-500 fw-semi-bold">
-                      <label for="alergy-no">Nao</label>
-                      <input type="radio" name="allergy" id="alergy-no" />
-                    </div>
-                  </div>
-                  <div class="margin-block-start-400" id="has-alergy-field">
-                    <input
-                      type="text"
-                      name="has-allergy"
-                      id="has-allergy-input"
-                      placeholder="Se sim qual?"
+                            th:field="*{gender}"
+                            th:value="${'female'}"
                     />
-                    <span class="line-input"></span>
+                    <label for="feminine-input" class="fw-bold"
+                    >Fêmea</label
+                    >
                   </div>
                 </div>
-
-                <div class="observations | margin-block-start-500">
-                  <textarea
-                    name="observations"
-                    id="observations-area"
-                    cols="28"
-                    rows="5"
-                    placeholder="Observacoes"
-                  ></textarea>
+              </div>
+              <div class="ill-field | flex-column align-center  text-primary-500 fw-bold">
+                <h5 class="fs-650 fw-bold">Infecçoes</h5>
+                <div>
+                  <input type="checkbox" th:field="*{withFlea}" name="flea" id="flea-input" />
+                  <label for="flea-input">Pulgas</label>
+                  <input type="checkbox" th:field="*{withTick}" name="ticks" id="ticks-input" />
+                  <label for="ticks-input">Carrapatos</label>
                 </div>
-              </section>
-              <section class="services | margin-block-start-400">
-                <h1 class="fs-650 fw-bold text-center margin-block-end-400">
-                  Servicos de Estetica
-                </h1>
-                <div class="flex gap-600">
-                  <div class="servicies-field | fw-bold text-primary-500">
-                    <div class="bath-area">
-                      <input
-                        type="checkbox"
-                        name="bath"
-                        id="bath-checkbox"
-                        value="bath"
-                      />
-                      <label for="bath-checkbox">Banho</label>
-                    </div>
-                    <div class="hydration-area">
-                      <input
-                        type="checkbox"
-                        name="hydration"
-                        id="hydration-checkbox"
-                        value="hydration"
-                      />
-                      <label for="hydration-checkbox">Hidratacao</label>
-                    </div>
-                    <div class="hydration-area">
-                      <input
-                        type="checkbox"
-                        name="untangle"
-                        id="untangle-checkbox"
-                        value="untangle"
-                      />
-                      <label for="untangle-checkbox">Desembolo</label>
-                    </div>
-                    <div class="clipping-area">
-                      <input
-                        type="checkbox"
-                        name="clipping"
-                        id="clipping-checkbox"
-                        value="clipping"
-                      />
-                      <label for="clipping-checkbox">Tosa</label>
-                    </div>
-                  </div>
-
-                  <div
-                    class="clipping-options text-primary-500 flex-column gap-200 hidden"
-                  >
-                    <h5 class="fs-600 fw-bold text-center">Opcoes de Tosa</h5>
-                    <div class="clipping-types | flex gap-300 justify-center">
-                      <div>
-                        <input
-                          type="radio"
-                          name="clipping-type"
-                          id="default-clipping-input"
-                        />
-                        <label for="default-clipping-input" class="fw-bold"
-                          >Padrao</label
-                        >
-                      </div>
-                      <div>
-                        <input
-                          type="radio"
-                          name="clipping-type"
-                          id="higenic-clipping-input"
-                        />
-                        <label for="higenic-clipping-input" class="fw-bold"
-                          >Higienica</label
-                        >
-                      </div>
-                    </div>
-                    <div class="cut-option | flex gap-300 justify-center">
-                      <div>
-                        <input
-                          type="radio"
-                          name="cut-type"
-                          id="machine-cut-input"
-                        />
-                        <label for="machine-cut-input" class="fw-bold"
-                          >Maquina</label
-                        >
-                      </div>
-                      <div>
-                        <input
-                          type="radio"
-                          name="cut-type"
-                          id="scissors-cut-input"
-                        />
-                        <label for="scissors-cut-input" class="fw-bold"
-                          >Tesoura</label
-                        >
-                      </div>
-                    </div>
-                    <div class="cut-size">
-                      <select type="text" name="cut-size" id="cut-size-input">
-                        <option value="long">Longo</option>
-                        <option value="short">Curto</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section
-                class="total-price | flex-column align-center padding-block-600"
+              </div>
+            </div>
+            <div class="injuries-field | custom-selector-wrapper">
+              <h5 class="fs-650 fw-bold text-primary-500">Lesoes</h5>
+              <select
+                      name="injuries"
+                      id="injuries-selection"
+                      class="original-selection | margin-block-400"
               >
-                <span class="fs-700 fw-bold text-primary-500">Total:</span>
-                <span class="fs-700 fw-bold text-primary-400">R$ 56,99</span>
-              </section>
-              <section>
-                <div class="privacy-field | flex align-center margin-block-400">
-                  <input
-                    type="checkbox"
-                    name="privacy-policy"
-                    id="privacy-policy"
-                    required
-                  />
-                  <label for="privacy-policy" class="fs-300"
-                    >Concordo com a <a>Politica de Privacidade</a></label
-                  >
-                </div>
-                <div class="submit-field | flex justify-center gap-500">
-                  <button class="button | d-md-flex-inline">Confirmar</button>
-                  <a href="index.html" class="button button-danger">Cancelar</a>
-                </div>
-              </section>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
+                <option value="select">Selecione a Lesao</option>
+                <option value="eyes" class="select-item">Olhos</option>
+                <option value="skin" class="select-item">Pele</option>
+                <option value="ears" class="select-item">Ouvidos</option>
+                <option value="secretion" class="select-item">
+                  Secrecao na Genitalias
+                </option>
+              </select>
+              <select
+                      name="injuries-custom"
+                      id="injuries-selection-custom"
+                      class="custom-selection | hidden"
+                      th:field="*{injures}"
+                      multiple
+              >
+                <option th:value="${'eyes'}" value="eyes" class="select-item">Olhos</option>
+                <option th:value="${'skin'}" value="skin" class="select-item">Pele</option>
+                <option th:value="${'ears'}" value="ears" class="select-item">Ouvidos</option>
+                <option th:value="${'secretion'}" value="secretion" class="select-item">
+                  Secrecao na Genitalias
+                </option>
+              </select>
+            </div>
 
-    <footer th:replace="components/footer :: footer">
-    </footer>
-    <script src="assets/js/customMultiSelector.js"></script>
-    <script src="assets/js/schedule.js"></script>
-  </body>
+            <div class="items-left-field | custom-selector-wrapper">
+              <h5 class="fs-650 fw-bold text-primary-500">
+                Objetos Acompanhados
+              </h5>
+              <select
+                      name="items-left"
+                      id="items-left-selection"
+                      class="original-selection | margin-block-400"
+              >
+                <option value="select">Selecione</option>
+                <option value="collar" class="select-item">Coleira</option>
+                <option value="retractable" class="select-item">
+                  Retratil
+                </option>
+                <option value="hangman" class="select-item">
+                  Enforcador
+                </option>
+                <option value="guide" class="select-item">Guia</option>
+                <option value="breastplate" class="select-item">
+                  Peitoral
+                </option>
+                <option value="teeth-brush" class="select-item">
+                  Escova de Dentes
+                </option>
+                <option value="Toothpaste" class="select-item">
+                  Pasta de Dentes
+                </option>
+              </select>
+              <select
+                      name="items-left-custom"
+                      id="items-left-selection-custom"
+                      class="custom-selection | hidden"
+                      th:field="*{objectsWith}"
+                      multiple
+              >
+                <option th:value="${'collar'}" value="collar" class="select-item">Coleira</option>
+                <option th:value="${'retractable'}" value="retractable" class="select-item">
+                  Retratil
+                </option>
+                <option th:value="${'hangman'}" value="hangman" class="select-item">
+                  Enforcador
+                </option>
+                <option th:value="${'guide'}" value="guide" class="select-item">Guia</option>
+                <option th:value="${'breastplate'}" value="breastplate" class="select-item">
+                  Peitoral
+                </option>
+                <option th:value="${'teeth-brush'}" value="teeth-brush" class="select-item">
+                  Escova de Dentes
+                </option>
+                <option th:value="${'Toothpaste'}" value="Toothpaste" class="select-item">
+                  Pasta de Dentes
+                </option>
+              </select>
+            </div>
+            <div class="allergies-field">
+              <div
+                      class="allergy-wrapper | flex align-center margin-block-start-500"
+              >
+                <h5
+                        class="fs-650 fw-bold text-primary-500 margin-inline-end-600"
+                >
+                  Alergias?
+                </h5>
+                <div
+                        class="text-primary-500 fw-semi-bold margin-inline-end-400"
+                >
+                  <label for="alergy-yes">Sim</label>
+                  <input type="radio" name="allergy" id="alergy-yes" />
+                </div>
+                <div class="text-primary-500 fw-semi-bold">
+                  <label for="alergy-no">Nao</label>
+                  <input type="radio" name="allergy" id="alergy-no" />
+                </div>
+              </div>
+              <div class="margin-block-start-400" id="has-alergy-field">
+                <input
+                        type="text"
+                        name="has-allergy"
+                        id="has-allergy-input"
+                        th:field="*{alergies}"
+                        placeholder="Se sim qual(is)?"
+                />
+                <span class="line-input"></span>
+              </div>
+            </div>
+
+            <div class="observations | margin-block-start-500">
+                  <textarea
+                          name="observations"
+                          id="observations-area"
+                          cols="28"
+                          rows="5"
+                          placeholder="Observacoes"
+                          th:field="*{observation}"
+                  ></textarea>
+            </div>
+          </section>
+          <section class="services | margin-block-start-400">
+            <h1 class="fs-650 fw-bold text-center margin-block-end-400">
+              Servicos de Estetica
+            </h1>
+            <div class="flex gap-600">
+              <div class="servicies-field | fw-bold text-primary-500">
+                <div class="bath-area">
+                  <input
+                          type="checkbox"
+                          name="bath"
+                          id="bath-checkbox"
+                          value="bath"
+                          th:field="*{services[0]}"
+                          th:value="${'bath'}"
+                  />
+                  <label for="bath-checkbox">Banho</label>
+                </div>
+                <div class="hydration-area">
+                  <input
+                          type="checkbox"
+                          name="hydration"
+                          id="hydration-checkbox"
+                          value="hydration"
+                          th:field="*{services[1]}"
+                          th:value="${'hydration'}"
+                  />
+                  <label for="hydration-checkbox">Hidratacao</label>
+                </div>
+                <div class="hydration-area">
+                  <input
+                          type="checkbox"
+                          name="untangle"
+                          id="untangle-checkbox"
+                          value="untangle"
+                          th:field="*{services[2]}"
+                          th:value="${'untangle'}"
+                  />
+                  <label for="untangle-checkbox">Desembolo</label>
+                </div>
+                <div class="clipping-area">
+                  <input
+                          type="checkbox"
+                          name="clipping"
+                          id="clipping-checkbox"
+                          value="clipping"
+                          th:field="*{services[3]}"
+                          th:value="${'clipping'}"
+                  />
+                  <label for="clipping-checkbox">Tosa</label>
+                </div>
+              </div>
+
+              <div
+                      class="clipping-options text-primary-500 flex-column gap-200 hidden"
+              >
+                <h5 class="fs-600 fw-bold text-center">Opcoes de Tosa</h5>
+                <div class="clipping-types | flex gap-300 justify-center">
+                  <div>
+                    <input
+                            type="radio"
+                            name="clipping-type"
+                            id="default-clipping-input"
+                    />
+                    <label for="default-clipping-input" class="fw-bold" th:field="*{clippingType}" th:value="${'standart'}"
+                    >Padrao</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                            type="radio"
+                            name="clipping-type"
+                            id="higenic-clipping-input"
+                            th:field="*{clippingType}"
+                            th:value="${'higenic'}"
+                    />
+                    <label for="higenic-clipping-input" class="fw-bold"
+                    >Higienica</label
+                    >
+                  </div>
+                </div>
+                <div class="cut-option | flex gap-300 justify-center">
+                  <div>
+                    <input
+                            type="radio"
+                            name="cut-type"
+                            id="machine-cut-input"
+                            th:field="*{equipamentDesired}"
+                            th:value="${'machine'}"
+                    />
+                    <label for="machine-cut-input" class="fw-bold"
+                    >Maquina</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                            type="radio"
+                            name="cut-type"
+                            id="scissors-cut-input"
+                            th:field="*{equipamentDesired}"
+                            th:value="${'scissors'}"
+                    />
+                    <label for="scissors-cut-input" class="fw-bold"
+                    >Tesoura</label
+                    >
+                  </div>
+                </div>
+                <div class="cut-size">
+                  <select type="text" name="cut-size" id="cut-size-input">
+                    <option th:field="*{clippingSize}" th:value="${'long'}" value="long">Longo</option>
+                    <option th:field="*{clippingSize}" th:value="${'short'}" value="short">Curto</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+                  class="total-price | flex-column align-center padding-block-600"
+          >
+            <span class="fs-700 fw-bold text-primary-500">Total:</span>
+            <span class="fs-700 fw-bold text-primary-400">R$ 56,99</span>
+            <input type="hidden" name="total-price" th:field="*{price}" th:value="${'56'}">
+          </section>
+          <section>
+            <div class="privacy-field | flex align-center margin-block-400">
+              <input
+                      type="checkbox"
+                      name="privacy-policy"
+                      id="privacy-policy"
+                      required
+              />
+              <label for="privacy-policy" class="fs-300"
+              >Concordo com a <a>Politica de Privacidade</a></label
+              >
+            </div>
+            <div class="submit-field | flex justify-center gap-500">
+              <button class="button | d-md-flex-inline">Confirmar</button>
+              <a href="index.html" class="button button-danger">Cancelar</a>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer th:replace="components/footer :: footer">
+</footer>
+<script th:src="@{js/customMultiSelector.js}"></script>
+<script th:src="@{js/schedule.js}"></script>
+</body>
 </html>
