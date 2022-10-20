@@ -9,7 +9,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Getter
@@ -19,7 +21,9 @@ import java.time.LocalDateTime;
 @IdClass(ScheduleId.class)
 public class Schedule  implements Serializable {
     @Id
-    private LocalDateTime appoitment;
+    private LocalDate appoitmentDate;
+    @Id
+    private LocalTime appoitmentHour;
     @Id
     @ManyToOne
     private Client client;

@@ -439,7 +439,7 @@ input:focus ~ .line-input::after
   }
 
   .hidden{
-    display: none;
+    display: none !important;
   }
   
  @media (min-width: 50em) {

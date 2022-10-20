@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/schedule")
@@ -29,6 +33,15 @@ public class ScheduleController {
         ScheduleDTO scheduleDTO = new ScheduleDTO();
         scheduleDTO.setOwnerName(String.format("%s %s",userByEmail.getFirstname(), userByEmail.getLastname()));
         model.addAttribute("scheduleInfo", scheduleDTO);
+        model.addAttribute("todaysDate", LocalDate.now());
+
+        //TODO: make it come from database
+        Map<LocalDate, List<LocalTime>> dates = Map.of(
+                LocalDate.now(), List.of(LocalTime.of(9,0)),
+                LocalDate.now().plusDays(2), List.of(LocalTime.of(9,0),LocalTime.of(11,0))
+        );
+        model.addAttribute("times", dates);
+        //TODO: remove it
         return "scheduling";
     }
 

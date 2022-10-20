@@ -313,17 +313,16 @@
                 <div class="clipping-types | flex gap-300 justify-center">
                   <div>
                     <input
-                            type="radio"
+                            type="checkbox"
                             name="clipping-type"
                             id="default-clipping-input"
+                            th:field="*{clippingType}" th:value="${'standart'}"
                     />
-                    <label for="default-clipping-input" class="fw-bold" th:field="*{clippingType}" th:value="${'standart'}"
-                    >Padrao</label
-                    >
+                    <label for="default-clipping-input" class="fw-bold">Padrao</label>
                   </div>
                   <div>
                     <input
-                            type="radio"
+                            type="checkbox"
                             name="clipping-type"
                             id="higenic-clipping-input"
                             th:field="*{clippingType}"
@@ -370,11 +369,26 @@
             </div>
           </section>
           <section
-                  class="total-price | flex-column align-center padding-block-600"
+                  class="append | flex justify-around  padding-block-600"
           >
-            <span class="fs-700 fw-bold text-primary-500">Total:</span>
-            <span class="fs-700 fw-bold text-primary-400">R$ 56,99</span>
-            <input type="hidden" name="total-price" th:field="*{price}" th:value="${'56'}">
+            <div class="flex-column align-center">
+              <span class="fs-700 fw-bold text-primary-500">Total:</span>
+              <span class="fs-700 fw-bold text-primary-400">R$ <span id="total-price">0,00</span></span>
+              <input type="hidden" id="total-price-hidden" name="total-price" th:field="*{price}">
+
+            </div>
+            <div class="flex align-center">
+              <input th:min="${#temporals.format(todaysDate, 'yyyy-MM-dd')}" type="date" name="appointment-date" id="appointment-date">
+              <select class="margin-inline-start-500" name="appointment-hour" id="appointment-hour">
+                <option value="08:00:00">8:00h</option>
+                <option value="09:00:00">9:00h</option>
+                <option value="10:00:00">10:00h</option>
+                <option value="11:00:00">11:00h</option>
+                <option value="12:00:00">12:00h</option>
+                <option value="13:00:00">13:00h</option>
+              </select>
+            </div>
+
           </section>
           <section>
             <div class="privacy-field | flex align-center margin-block-400">
@@ -401,6 +415,16 @@
 
 <footer th:replace="components/footer :: footer">
 </footer>
+
+<script th:inline="javascript">
+  /*<![CDATA[*/
+
+
+  let dates = /*[[${times}]]*/ 'Sebastian';
+  console.log(dates)
+
+  /*]]>*/
+</script>
 <script th:src="@{js/customMultiSelector.js}"></script>
 <script th:src="@{js/schedule.js}"></script>
 </body>
